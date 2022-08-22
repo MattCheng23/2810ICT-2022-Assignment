@@ -1,0 +1,11 @@
+f = open(input("File name:"))
+lines = f.readlines()
+f1 = lines[0]
+f2 = lines[1]
+f3 = lines[-2]
+f4 = lines[-1]
+print("Output:", end="\n")
+print(f1, end='')
+print(f2, end='')
+print(f3, end='')
+print(f4, end='')
