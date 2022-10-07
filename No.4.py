@@ -1,33 +1,25 @@
-import time
-import csv
+import pandas as pd
+from datetime import datetime
+import re
+
+
+df = pd.read_csv('./DataBase.csv', low_memory=False)
+
+df['OFFENCE_MONTH'] = df['OFFENCE_MONTH'].apply(pd.to_datetime)
+
+
+phone_related_mask = df['OFFENCE_DESC'].str.contains('phone',re.IGNORECASE)
+phone_related_mask.value_counts()
+
+df[phone_related_mask]
+
+phone_related = df[phone_related_mask].groupby('OFFENCE_FINYEAR').size()
+print('Num of Phone related datas by year:')
+print(phone_related)
+
 import matplotlib.pyplot as plt
-
-fileName = 'DataBase.csv'
-
-x = []
-y = []
-
-with open(fileName, 'r') as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-
-        xtime = time.mktime(time.strptime(row[0], "%y%m%d_%H:%M:%S"))
-
-        if row[2].isdigit():
-            x.append(xtime)
-            y.append(row[2])
-        else:
-            print("Wrong type: " + str(row))
-
-deta = int(x[0])
-for j in range(len(x)):
-    x[j] = int(x[j]) - deta
-    y[j] = int(y[j])
-
-plt.xlabel("Time(s)")
-plt.ylabel("Ug(TSI_PM2.5)")
-
-plt.plot(x, y, label='TSI_PM2.5', linewidth=2)
-
-plt.legend()
+plt.figure(figsize=(10,8))
+plt.title('Num of Phone related datas by year:')
+phone_related.plot()
+plt.ylabel('counts')
 plt.show()
