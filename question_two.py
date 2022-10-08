@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from datetime import datetime
+import pandas as pd
 
 df = pd.read_csv('./DataBase.csv', low_memory=False)
 df['OFFENCE_MONTH'] = df['OFFENCE_MONTH'].apply(pd.to_datetime)
