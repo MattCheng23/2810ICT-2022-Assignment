@@ -15,7 +15,6 @@ mask = (df['OFFENCE_MONTH'] > start_time) & (df['OFFENCE_MONTH'] < end_time)
 df.drop(["OFFENCE_FINYEAR","OFFENCE_MONTH","OFFENCE_DESC","LEGISLATION","SECTION_CLAUSE","FACE_VALUE","CAMERA_IND", "CAMERA_TYPE", "LOCATION_CODE", "RED_LIGHT_CAMERA_IND", "SPEED_CAMERA_IND", "SEATBELT_IND", "MOBILE_PHONE_IND", "PARKING_IND", "CINS_IND", "FOOD_IND", "BICYCLE_TOY_ETC_IND","LOCATION_DETAILS","SCHOOL_ZONE_IND","SPEED_BAND","SPEED_IND","POINT_TO_POINT_IND","TOTAL_VALUE"],axis = 1, inplace = True)
 #print(df)
 df.set_index("OFFENCE_CODE", inplace=True)
-#df.head
 plt.figure(figsize=(10,8))
 df.plot()
 plt.title('Distribution of cases in each offence code ')
