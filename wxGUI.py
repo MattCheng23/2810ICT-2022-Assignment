@@ -8,7 +8,7 @@ class MainWindow(wx.Frame):
     def __init__(self, parent, title):
         wx.Frame.__init__(self, parent, title=title, size=(350, 400))
         panel = wx.Panel(self)
-        self.quote = wx.StaticText(panel, label="Coffence-Code :", pos=(20, 30))
+        self.quote = wx.StaticText(panel, label="Offence-Code :", pos=(20, 30))
         self.editqu = wx.TextCtrl(panel, value="E.g 74703", pos=(20, 50), size=(220, -1))
         self.Bind(wx.EVT_TEXT, self.EvtText, self.editqu)
         self.Bind(wx.EVT_CHAR, self.EvtChar, self.editqu)
@@ -55,5 +55,5 @@ class MainWindow(wx.Frame):
 
 if __name__ == '__main__':
     app = wx.App(False)
-    frame = MainWindow(None, "Search for traffic penalty")
+    frame = MainWindow(None, "Search For Traffic Penalty")
     app.MainLoop()
