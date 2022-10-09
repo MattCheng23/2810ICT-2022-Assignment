@@ -1,3 +1,0 @@
-USER MANUAL
-
-#Under the command, enter the corresponding offence code under the offence code for query, then select the date to be queried under the current date, and filter different types of offence records. Finally, use the search command to obtain the desired result
